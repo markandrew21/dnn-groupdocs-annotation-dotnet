@@ -19,7 +19,7 @@ In the "samples" folder of installed Groupdocs Annotation for .NET you will see 
 4. Now when you opened Groupdocs.Demo.Annotation.Mvc you can build it and run - simply click Run on toolbar. If you will have some errors for example "Could not load some assembly" copy specified in error dll file from bin folder 
 which located in root installation folder of installed "Groupdocs.Annotation.Full.msi" to "bin" folder of Groupdocs.Demo.Annotation.Mvc
 
-When MVC sample is started, write down the URL to access to started sample. Also the sample can be deployed to ISS after it was built. (The URL you will need to access Annotation for .NET in a browser or to integrate the Annotation app in DNN plugin)
+When MVC sample is started, write down the URL to access to started sample. Also the sample can be deployed to IIS after it was built. (The URL you will need to access Annotation for .NET in a browser or to integrate the Annotation app in DNN plugin)
 
 
 ### How to install and use GroupDocs .NET Annotation plugin for DotNetNuke CMS
