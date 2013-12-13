@@ -1,4 +1,5 @@
-groupdocs-dnn-installable-annotation
+GroupDocs Annotation for .NET plugin for DotNetNuke
 ====================================
 
-GroupDocs Annotation for .NET plugin for DotNetNuke
+### Requirements
+*Minimum DotNetNuke version is 07.00.02
