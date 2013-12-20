@@ -88,6 +88,13 @@ insert into {databaseOwner}{objectQualifier}hostsettings
 
 6. Go to `<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\Add_Data\` and copy `Quick_Start_Guide_To_Using_GroupDocs.pdf`  file to it
   
+### Using plugin
+1. Create new Page (Go to `Pages` > `Add New Page`) or select existing one
+2. Go to `Modules` > `Add new module` in DNN menu
+3. Choose `GroupDocs Annotation for .NET` in Module dropdown and drag module to your page
+4. Mouse over `GroupDocs Annotation for .NET` module > `Manage` button and click `Settings`
+5. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties and click Update button
+6. `GroupDocs Annotation for .NET` plugin will be shown.
   
 ### Development notes
 * Use Visual Studio 2012 for developing
