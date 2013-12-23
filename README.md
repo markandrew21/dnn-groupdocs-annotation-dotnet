@@ -12,92 +12,32 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 7. Look at License then Accept License and press `Next` button
 8. Plugin was installed successfully (<b>You should configure plugin before using</b>)
 
+### Increase the admissible file size for loading
+1. Open `<DotNetNuke Root directory>\web.xml file in texteditor (notepad)
+2. Find this line: '<validation validateIntegratedModeConfiguration="false" />' 
+	2.1. After this line add:
+		 <security>
+		  <requestFiltering>
+			<requestLimits maxAllowedContentLength="100000000" />
+		  </requestFiltering>
+		</security>
+3. Find this line: '<httpRuntime shutdownTimeout="120" executionTimeout="900" useFullyQualifiedRedirectUrl="true" maxRequestLength="12288" requestLengthDiskThreshold="12288" requestPathInvalidCharacters="&lt;,&gt;,*,%,:,\,?" requestValidationMode="2.0" />'
+	3.1. Change parameters 'maxRequestLength="12288"' and 'requestLengthDiskThreshold="12288"' to 'maxRequestLength="122880"' 'requestLengthDiskThreshold="122880"'
+
+
 ### Plugin configuration process
-1. In Windows explorer go to DotNetNuke root directory and open `web.config` file as text (in notepad)
-2. Find a line with the text `</connectionStrings>` and before this line add next code:
-
-	```xml
-	<add name="SaasposeDb" connectionString="metadata=res://*/Groupdocs.csdl|res://*/Groupdocs.ssdl|res://*/Groupdocs.msl;provider=System.Data.SqlServerCe.4.0;provider connection string=&quot;Data Source=|DataDirectory|\..\DesktopModules\dnn_groupdocs_annotation_dotnet\App_Data\DB.sdf;Password=sa;Persist Security Info=True&quot;" providerName="System.Data.EntityClient"/>
-	```
-
-3. Find a line with the text `</handlers>` after line with text `<system.webServer>` and before `</handlers>` line add next code:
-
-	```xml
-	<add name="ViewDocumentHandler" verb="*" path="document-viewer/ViewDocumentHandler" type="Groupdocs.Web.UI.Handlers.ViewDocumentHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="GetDocumentPageImageHandler" verb="*" path="document-viewer/GetDocumentPageImageHandler" type="Groupdocs.Web.UI.Handlers.GetDocumentPageImageHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="LoadFileBrowserTreeDataHandler" verb="*" path="document-viewer/LoadFileBrowserTreeDataHandler" type="Groupdocs.Web.UI.Handlers.LoadFileBrowserTreeDataHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="GetImageUrlsHandler" verb="*" path="document-viewer/GetImageUrlsHandler" type="Groupdocs.Web.UI.Handlers.GetImageUrlsHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-	<add name="GetCssHandler" verb="GET" path="document-viewer/CSS/GetCssHandler" type="Groupdocs.Web.UI.Handlers.CssHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-	<add name="EmbeddedImageHandler" verb="GET" path="document-viewer/images/*" type="Groupdocs.Web.UI.Handlers.EmbeddedImageHandler,Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="EmbeddedImageHandler2" verb="GET" path="groupdocs/images/*" type="Groupdocs.Web.UI.Handlers.EmbeddedImageHandler,Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="GetScriptHandler" verb="GET,POST" path="document-viewer/GetScriptHandler" type="Groupdocs.Web.UI.Handlers.ScriptHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="GetFileHandler" verb="GET" path="document-viewer/GetFileHandler" type="Groupdocs.Web.UI.Handlers.GetFileHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-	<add name="GetPdf2XmlHandler" verb="POST" path="document-viewer/GetPdf2XmlHandler" type="Groupdocs.Web.UI.Handlers.GetPdf2XmlHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-	<add name="GetPdf2JavaScriptHandler" verb="POST" path="document-viewer/GetPdf2JavaScriptHandler" type="Groupdocs.Web.UI.Handlers.GetPdf2JavaScriptHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-	<add name="GetPdfWithPrintDialogHandler" verb="GET,POST" path="document-viewer/GetPdfWithPrintDialogHandler" type="Groupdocs.Web.UI.Handlers.GetPdfWithPrintDialogHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="AnnotationHandler" verb="*" path="document-annotation/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="AnnotationCssHandler" verb="*" path="document-annotation/CSS/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	<add name="AnnotationImagesHandler" verb="*" path="document-annotation/images/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	```
-  
-4. Find a line with the text `</system.web>` and before this line add next code:
-  
-	```xml
-	<httpHandlers>
-		<add verb="*" path="document-viewer/ViewDocumentHandler" type="Groupdocs.Web.UI.Handlers.ViewDocumentHandler, Groupdocs.Web.Annotation, Culture=neutral" validate="false"/>
-		<add verb="*" path="document-viewer/GetDocumentPageImageHandler" type="Groupdocs.Web.UI.Handlers.GetDocumentPageImageHandler, Groupdocs.Web.Annotation, Culture=neutral" validate="false"/>
-		<add verb="*" path="document-viewer/LoadFileBrowserTreeDataHandler" type="Groupdocs.Web.UI.Handlers.LoadFileBrowserTreeDataHandler, Groupdocs.Web.Annotation, Culture=neutral" validate="false"/>
-		<add verb="*" path="document-viewer/GetImageUrlsHandler" type="Groupdocs.Web.UI.Handlers.GetImageUrlsHandler, Groupdocs.Web.Annotation,Culture=neutral" validate="false"/>
-		<add verb="GET" path="document-viewer/CSS/GetCssHandler" type="Groupdocs.Web.UI.Handlers.CssHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-		<add verb="GET" path="document-viewer/images/*" type="Groupdocs.Web.UI.Handlers.EmbeddedImageHandler,Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="GET" path="groupdocs/images/*" type="Groupdocs.Web.UI.Handlers.EmbeddedImageHandler,Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="GET,POST" path="document-viewer/GetScriptHandler" type="Groupdocs.Web.UI.Handlers.ScriptHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="GET" path="document-viewer/GetFileHandler" type="Groupdocs.Web.UI.Handlers.GetFileHandler, Groupdocs.Web.Annotation,Culture=neutral" validate="false"/>
-		<add verb="POST" path="document-viewer/GetPdf2XmlHandler" type="Groupdocs.Web.UI.Handlers.GetPdf2XmlHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-		<add verb="POST" path="document-viewer/GetPdf2JavaScriptHandler" type="Groupdocs.Web.UI.Handlers.GetPdf2JavaScriptHandler, Groupdocs.Web.Annotation,Culture=neutral"/>
-		<add verb="GET,POST" path="document-viewer/GetPdfWithPrintDialogHandler" type="Groupdocs.Web.UI.Handlers.GetPdfWithPrintDialogHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="*" path="document-annotation/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="*" path="document-annotation/CSS/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-		<add verb="*" path="document-annotation/images/*" type="Groupdocs.Web.Annotation.AnnotationHandler, Groupdocs.Web.Annotation, Culture=neutral"/>
-	</httpHandlers>
-	```
-
-5. Go to `Host`->`Advanced Settings`->`SQL` in menu. Paste next code and Run it:
-
-```sql
-insert into {databaseOwner}{objectQualifier}hostsettings
-	(
-		SettingName,
-		SettingValue,
-		SettingIsSecure,
-		CreatedByUserId,
-		CreatedOnDate,
-		LastModifiedByUserId,
-		LastModifiedOnDate
-	)
-	values(
-		'AUM_DoNotRewriteRegEx',
-		'/DesktopModules/|/Providers|/LinkClick\.aspx|/SignalR',
-		0,
-		-1,
-		GETDATE(),
-		-1,
-		GETDATE()
-	)
-```
-
-6. Go to `<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\Add_Data\` and copy `Quick_Start_Guide_To_Using_GroupDocs.pdf`  file to it
+1. Go to `<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\Add_Data\` and copy file for view/annotate to it
   
 ### Using plugin
 1. Create new Page (Go to `Pages` > `Add New Page`) or select existing one
-2. Go to `Modules` > `Add new module` in DNN menu
-3. Choose `GroupDocs Annotation for .NET` in Module dropdown and drag module to your page
-4. Mouse over `GroupDocs Annotation for .NET` module > `Manage` button and click `Settings`
-5. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties and click Update button
-6. `GroupDocs Annotation for .NET` plugin will be shown.
+2. Turn 'Edit page' mode
+3. Go to `Modules` > `Add new module` in DNN menu
+4. Choose `GroupDocs Annotation for .NET` in Module dropdown and drag module to your page
+5. Mouse over `GroupDocs Annotation for .NET` module > `Manage` button and click `Settings`
+6. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties(check 'Use Http Handlers' check box) and click Update button
+7. `GroupDocs Annotation for .NET` plugin will be shown.
   
 ### Development notes
 * Use Visual Studio 2012 for developing
 * Copy sources of plugin into `~/DesktopModules/dnn_groupdocs_annotation_dotnet/` directory
 * Install Sql Server Compact Edition using NuGet
-
