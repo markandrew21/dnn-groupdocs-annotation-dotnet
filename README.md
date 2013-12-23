@@ -13,7 +13,7 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 8. Plugin was installed successfully (<b>You should configure plugin before using</b>)
 
 ### Increase the admissible file size for loading
-1. Open `<DotNetNuke Root directory>\web.xml` file in text editor (notepad)
+1. Open `<DotNetNuke Root directory>\web.config` file in text editor (notepad)
 2. Find this line: `<validation validateIntegratedModeConfiguration="false" />`
 	
 	2.1. After this line add:
