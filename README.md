@@ -15,14 +15,16 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 ### Increase the admissible file size for loading
 1. Open `<DotNetNuke Root directory>\web.xml` file in text editor (notepad)
 2. Find this line: `<validation validateIntegratedModeConfiguration="false" />`
-	a. After this line add:
+	
+	2.1. After this line add:
 		 `<security>
 		  <requestFiltering>
 			<requestLimits maxAllowedContentLength="100000000" />
 		  </requestFiltering>
 		</security>`
 3. Find this line: `<httpRuntime shutdownTimeout="120" executionTimeout="900" useFullyQualifiedRedirectUrl="true" maxRequestLength="12288" requestLengthDiskThreshold="12288" requestPathInvalidCharacters="&lt;,&gt;,*,%,:,\,?" requestValidationMode="2.0" />`
-	a. Change parameters `maxRequestLength="12288"` and `requestLengthDiskThreshold="12288"` to `maxRequestLength="122880" requestLengthDiskThreshold="122880"`
+	
+	3.1. Change parameters `maxRequestLength="12288"` and `requestLengthDiskThreshold="12288"` to `maxRequestLength="122880" requestLengthDiskThreshold="122880"`
 
 
 ### Plugin configuration process
