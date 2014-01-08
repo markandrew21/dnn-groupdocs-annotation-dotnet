@@ -42,7 +42,7 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 
 ### Plugin configuring to work with MSSQL DB
 1. Create new database in MSSQL with any name.
-2. Created an user for the created database.
+2. Create an user for the created database.
 3. Create required tables (SQL script `MSSQL_create_tables.sql` is provided).
 4. Update web.config in DNN ( `<DotNetNuke Root directory>\web.config`) - Update connections string with name `SaasposeDb` to this one:
 
