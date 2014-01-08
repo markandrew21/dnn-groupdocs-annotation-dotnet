@@ -38,6 +38,15 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 5. Mouse over `GroupDocs Annotation for .NET` module > `Manage` button and click `Settings`
 6. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties(check 'Use Http Handlers' check box) and click Update button
 7. `GroupDocs Annotation for .NET` plugin will be shown.
+8. 
+
+### Plugin configuring to work with MSSQL DB
+1. Create new database in MSSQL (What name?).
+2. Created an user for the created database.
+3. Create required tables (SQL script is provided).
+4. Update  web.config in DNN ( `<DotNetNuke Root directory>\web.config`) - Update connections string to this one:
+5. Clear App_Data (`dnn_groupdocs_annotation_dotnet\App_Data`) folder.
+6. Restart DNN.
   
 ### Development notes
 * Use Visual Studio 2012 for developing
