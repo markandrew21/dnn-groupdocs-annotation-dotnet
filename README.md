@@ -46,9 +46,9 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 3. Create required tables (SQL script `MSSQL_create_tables.sql` is provided).
 4. Update web.config in DNN ( `<DotNetNuke Root directory>\web.config`) - Update connections string with name `SaasposeDb` to this one:
 
-```xml
-<add name="SaasposeDb" connectionString="metadata=res://*/GroupdocsSqlSrv.csdl|res://*/GroupdocsSqlSrv.ssdl|res://*/GroupdocsSqlSrv.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=<YOUR SQL SERVER NAME>;Initial Catalog=<NAME OF DATABASE WHICH YOU CREATED>;User Id=<USER NAME FOR DATABASE>;Password=<PASSWORD FOR DATABASE>&quot;" providerName="System.Data.EntityClient" />
-```
+    ```xml
+    <add name="SaasposeDb" connectionString="metadata=res://*/GroupdocsSqlSrv.csdl|res://*/GroupdocsSqlSrv.ssdl|res://*/GroupdocsSqlSrv.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=<YOUR SQL SERVER NAME>;Initial Catalog=<NAME OF DATABASE WHICH YOU CREATED>;User Id=<USER NAME FOR DATABASE>;Password=<PASSWORD FOR DATABASE>&quot;" providerName="System.Data.EntityClient" />
+    ```
 
 5. Clear App_Data (`<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\App_Data`) folder.
 6. Restart DNN.
