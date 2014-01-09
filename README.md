@@ -36,9 +36,9 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 3. Go to `Modules` > `Add new module` in DNN menu
 4. Choose `GroupDocs Annotation for .NET` in Module dropdown and drag module to your page
 5. Mouse over `GroupDocs Annotation for .NET` module > `Manage` button and click `Settings`
-6. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties(check 'Use Http Handlers' check box) and click Update button
+6. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties(check 'Use Http Handlers' check box, 'Default file name') and click Update button
 7. `GroupDocs Annotation for .NET` plugin will be shown.
-8. 
+
 
 ### Plugin configuring to work with MSSQL DB
 1. Create new database in MSSQL with any name.
@@ -58,3 +58,13 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 * Use Visual Studio 2012 for developing
 * Copy sources of plugin into `~/DesktopModules/dnn_groupdocs_annotation_dotnet/` directory
 * Install Sql Server Compact Edition using NuGet
+
+###[Sign, Manage, Annotate, Assemble, Compare and Convert Documents with GroupDocs](http://groupdocs.com)
+1. [Sign documents online with GroupDocs Signature](http://groupdocs.com/apps/signature)
+2. [PDF, Word and Image Annotation with GroupDocs Annotation](http://groupdocs.com/apps/annotation)
+3. [Online DOC, DOCX, PPT Document Comparison with GroupDocs Comparison](http://groupdocs.com/apps/comparison)
+4. [Online Document Management with GroupDocs Dashboard](http://groupdocs.com/apps/dashboard)
+5. [Doc to PDF, Doc to Docx, PPT to PDF, and other Document Conversions with GroupDocs Viewer](http://groupdocs.com/apps/viewer)
+6. [Online Document Automation with GroupDocs Assembly](http://groupdocs.com/apps/assembly)
+
+###Created by [GroupDocs Marketplace Team]( http://groupdocs.com/marketplace/ ).
