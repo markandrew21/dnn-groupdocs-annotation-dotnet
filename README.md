@@ -51,7 +51,8 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
     ```
 
 5. Clear App_Data (`<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\App_Data`) folder.
-6. Restart DNN.
+6. Delete file `file-sessions.json` from directory `<DotNetNuke Root directory>\App_Data\`
+7. Restart DNN.
   
 ### Development notes
 * Use Visual Studio 2012 for developing
