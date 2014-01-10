@@ -26,6 +26,25 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 	
 	3.1. Change parameters `maxRequestLength="12288"` and `requestLengthDiskThreshold="12288"` to `maxRequestLength="122880" requestLengthDiskThreshold="122880"`
 
+### Plugin configuring to work with MSSQL DB
+1. Create new database in MSSQL with any name.
+2. Create an user for the created database.
+    1.1. Create a new login ("Security" section)
+    1.2. Enter "Login name"
+    1.3. Select "SQL Server authentication"
+    1.4. Select the created database in "User Mapping" section
+    1.5. Select role "db_owner"
+    1.6. Click on "OK" button
+3. Create required tables (SQL script `MSSQL_create_tables.sql` is provided).
+4. Update web.config in DNN ( `<DotNetNuke Root directory>\web.config`) - Update connections string with name `SaasposeDb` to this one:
+
+    ```xml
+    <add name="SaasposeDb" connectionString="metadata=res://*/GroupdocsSqlSrv.csdl|res://*/GroupdocsSqlSrv.ssdl|res://*/GroupdocsSqlSrv.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=<YOUR SQL SERVER NAME>;Initial Catalog=<NAME OF DATABASE WHICH YOU CREATED>;User Id=<USER NAME FOR DATABASE>;Password=<PASSWORD FOR DATABASE>&quot;" providerName="System.Data.EntityClient" />
+    ```
+
+5. Clear App_Data (`<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\App_Data`) folder.
+6. Delete file `file-sessions.json` from directory `<DotNetNuke Root directory>\App_Data\`
+7. Restart DNN.
 
 ### Plugin configuration process
 1. Go to `<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\Add_Data\` and copy file for view/annotate to it
@@ -39,21 +58,8 @@ GroupDocs Annotation for .NET plugin for DotNetNuke (Source)
 6. Fill inside `GroupDocs Annotation for .NET Settings` tab three properties(check 'Use Http Handlers' check box, 'Default file name') and click Update button
 7. `GroupDocs Annotation for .NET` plugin will be shown.
 
+*If you have error like `{"success":false,"Reason":"Unable to get entity: ID = 1"}` you should delete file `file-sessions.json` from directory `<DotNetNuke Root directory>\App_Data\` *
 
-### Plugin configuring to work with MSSQL DB
-1. Create new database in MSSQL with any name.
-2. Create an user for the created database.
-3. Create required tables (SQL script `MSSQL_create_tables.sql` is provided).
-4. Update web.config in DNN ( `<DotNetNuke Root directory>\web.config`) - Update connections string with name `SaasposeDb` to this one:
-
-    ```xml
-    <add name="SaasposeDb" connectionString="metadata=res://*/GroupdocsSqlSrv.csdl|res://*/GroupdocsSqlSrv.ssdl|res://*/GroupdocsSqlSrv.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=<YOUR SQL SERVER NAME>;Initial Catalog=<NAME OF DATABASE WHICH YOU CREATED>;User Id=<USER NAME FOR DATABASE>;Password=<PASSWORD FOR DATABASE>&quot;" providerName="System.Data.EntityClient" />
-    ```
-
-5. Clear App_Data (`<DotNetNuke Root directory>\DesktopModules\dnn_groupdocs_annotation_dotnet\App_Data`) folder.
-6. Delete file `file-sessions.json` from directory `<DotNetNuke Root directory>\App_Data\`
-7. Restart DNN.
-  
 ### Development notes
 * Use Visual Studio 2012 for developing
 * Copy sources of plugin into `~/DesktopModules/dnn_groupdocs_annotation_dotnet/` directory
